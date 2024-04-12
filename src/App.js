@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './Create';
 import BlogDetails from './BlogDetails';
 import NotFound from './NotFound';
+import Update from './Update';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
             </Route>
             <Route path="/create">
               <Create />
+            </Route>
+            <Route exact path="/blogs/:id/update">
+              <Update />
             </Route>
             <Route path="/blogs/:id">
               <BlogDetails />
