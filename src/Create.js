@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -22,7 +23,7 @@ const Create = () => {
             console.log('New Blog Added');
             setIsPending(false);
             // history.go(-1);
-            history.push('/');
+            // history.push('/');
         });
 
         
@@ -32,21 +33,24 @@ const Create = () => {
         <div className="create">
             <h2>Add a new Blog</h2>
             <form onSubmit={ handleSubmit }>
-                <label>Blog Title:</label>
+                <label htmlFor='title'>Blog Title:</label>
                 <input 
+                    id='title'
                     type="text" 
                     required
                     value={ title }
                     onChange={(e) => setTitle(e.target.value)}
                 />
-                <label>Blog Body:</label>
+                <label htmlFor='body'>Blog Body:</label>
                 <textarea
+                    id='body'
                     required
                     value={ body }
                     onChange={(e) => setBody(e.target.value)}
                 ></textarea>
-                <label>Blog Author:</label>
+                <label htmlFor='author'>Blog Author:</label>
                 <input
+                    id='author'
                     type="text"
                     required
                     value={author}
