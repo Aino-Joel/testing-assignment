@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 
@@ -23,7 +24,7 @@ const Update = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const updatedBlog = { title, author, body };
+        const updatedBlog = { title, body, author };
 
         setIsPending(true);
 
@@ -46,27 +47,30 @@ const Update = () => {
         <div className="create">
             <h2>Update Blog</h2>
             <form onSubmit={handleSubmit}>
-                <label>Blog Title:</label>
-                <input
-                    type="text"
+                <label htmlFor='title'>Blog Title:</label>
+                <input 
+                    id='title'
+                    type="text" 
                     required
-                    value={title}
+                    value={ title }
                     onChange={(e) => setTitle(e.target.value)}
                 />
-                <label>Blog Body:</label>
+                <label htmlFor='body'>Blog Body:</label>
                 <textarea
+                    id='body'
                     required
-                    value={body}
+                    value={ body }
                     onChange={(e) => setBody(e.target.value)}
                 ></textarea>
-                <label>Blog Author:</label>
+                <label htmlFor='author'>Blog Author:</label>
                 <input
+                    id='author'
                     type="text"
                     required
                     value={author}
                     onChange={(e) => setAuthor(e.target.value)}
                 />
-                {!isPending && <button>Update Blog</button>}
+                {!isPending && <button type='submit'>Update Blog</button>}
                 {isPending && <button disabled>Updating Blog...</button>}
             </form>
         </div>
